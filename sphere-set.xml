@@ -1,0 +1,47 @@
+<PropertyList>
+ <sim>
+
+  <description>Test Sphere</description>
+  <author>Viktor Radnai</author>
+  <status>alpha</status>
+  <rating>
+   <FDM type="int">0</FDM>
+   <systems type="int">0</systems>
+   <cockpit type="int">0</cockpit>
+   <model type="int">1</model>
+  </rating>
+
+  <aero>sphere</aero>
+  <flight-model>yasim</flight-model>
+
+  <model>
+   <path>Aircraft/sphere/Models/sphere.xml</path>
+  </model>
+        <view n="0">
+            <name>Pilot View</name>
+            <type>lookfrom</type>
+            <internal type="bool">true</internal>
+            <config>
+                <ground-level-nearplane-m type="double">0</ground-level-nearplane-m>
+                <x-offset-m type="double">0.0</x-offset-m>
+                <y-offset-m type="double">0.0</y-offset-m>
+                <z-offset-m type="double">0.0</z-offset-m>
+                <pitch-offset-deg>0</pitch-offset-deg>
+                <limits>
+                    <enabled type="bool">false</enabled>
+                    <left>
+                        <heading-max-deg type="double">120</heading-max-deg>
+                        <x-offset-max-m type="double">0.10</x-offset-max-m>
+                        <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+                    </left>
+                    <right>
+                        <heading-max-deg type="double">160</heading-max-deg>
+                        <x-offset-max-m type="double">0.20</x-offset-max-m>
+                        <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+                    </right>
+                </limits>
+            </config>
+        </view>
+
+ </sim>
+</PropertyList>

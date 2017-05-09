@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+Flight model for SF25C
+-->
+<airplane mass="1190">
+	<approach speed="38" aoa="6" fuel="0.2">
+		<control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+		<control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
+		<control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1.0"/>
+	</approach>
+	<cruise speed="60" alt="4000" fuel="0.7">
+		<control-setting axis="/controls/engines/engine[0]/throttle" value="0.3"/>
+		<control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
+		<control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1.0"/>
+	</cruise>
+	<cockpit x="-0.216" y="0.154" z="0.616"/>
+	<fuselage ax="1.949" ay="0" az="0.139" bx="-4.803" by="0" bz="0.294" width="1.176" taper="0.2" midpoint="0.260"/>
+	<wing x="-0.371" y="0.502" z="-0.077" taper="0.466" incidence="5.0" twist="-2.5" length="7.22" chord="1.5" sweep="-4.5" dihedral="3" camber="0.05" effectiveness="2">
+		<stall aoa="16" width="10" peak="1.5"/>
+		<flap0 start="0.595" end="1" lift="1.165" drag="1.2"/>
+		<control-input axis="/controls/flight/aileron" control="FLAP0" split="true"/>
+		<control-output control="FLAP0" side="left" prop="surface-positions/left-aileron-pos-norm"/>
+		<control-output control="FLAP0" side="right" prop="surface-positions/right-aileron-pos-norm"/>
+		<spoiler start="0.231" end="0.38" lift="-0.2" drag="10"/>
+		<control-input axis="/controls/flight/spoilers" control="SPOILER" src0="0.0" src1="0.8" dst0="0.0" dst1="1.0"/>
+		<control-output control="SPOILER" prop="/surface-positions/speedbrake-pos-norm"/>
+	</wing>
+	<hstab x="-4.295" y="0.0" z="0.477" taper="1" length="1.45" chord="0.9" sweep="0" camber="0.1" effectiveness="2">
+		<stall aoa="18" width="6" peak="1.5"/>
+		<flap0 start="0.0" end="1" lift="1.3" drag="1.45"/>
+		<control-input axis="/controls/flight/elevator" control="FLAP0"/>
+		<control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+		<control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+	</hstab>
+	<vstab x="-4.837" y="0" z="0.307" taper="0.47" length="1.45" chord="1.46" sweep="0" effectiveness="2">
+		<stall aoa="15" width="6" peak="1.5"/>
+		<flap0 start="0" end="0.88" lift="1.7" drag="1.75"/>
+		<control-input axis="/controls/flight/rudder" square="true" control="FLAP0" invert="true"/>
+		<control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+		<control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+	</vstab>
+	<propeller x="1.463" y="0.0" z="0.071" mass="200" moment="2.25" radius="0.782" cruise-speed="106" cruise-rpm="3300" cruise-alt="5000" cruise-power="80" takeoff-power="60" takeoff-rpm="2700">
+		<actionpt x="1.690" y="0.0" z="0.137"/>
+		<piston-engine eng-rpm="3400" eng-power="80" displacement="121" compression="8.6">
+			<control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
+			<control-input control="STARTER" axis="/controls/engines/engine[0]/starter"/>
+			<control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
+			<control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture"/>
+		</piston-engine>
+	</propeller>
+	<gear x="0.485" y="0.0" z="-0.76" dfric="0.6" sfric="0.7" damp="0.5" spring="1.5" compression="0.1">
+		<control-input axis="/controls/gear/brake-parking" control="BRAKE" split="false"/>
+		<control-input axis="/controls/flight/spoilers" control="BRAKE" split="false" src0="0.8" src1="1.0" dst0="0.0" dst1="0.7"/>
+	</gear>
+	<gear x="0.036" y="-3.087" z="-0.646" dfric="0.07" sfric="0.08" damp="5" spring="0.5" compression="0.1"/>
+	<gear x="0.036" y="3.087" z="-0.646" dfric="0.07" sfric="0.08" damp="5" spring="0.5" compression="0.1"/>
+	<gear x="-4.765" y="0" z="-0.05" dfric="1" sfric="1" damp="0.5" spring="2" compression="0.02">
+		<control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0=".25" dst1="-.25"/>
+	</gear>
+	<!-- tank capacity 55lt (x1.58= 86.9 pounds) -->
+	<tank x="-0.537" y="0" z="0.548" capacity="86.9"/>
+	<!-- Pilots -->
+	<ballast x="0.201" y="-0.254" z="0.51" mass="120"/>
+	<ballast x="0.201" y="0.254" z="0.51" mass="120"/>
+	<!-- tail weight fudge to get CG right -->
+	<ballast x="1.3" y="0" z="0.260" mass="200"/>
+</airplane>
