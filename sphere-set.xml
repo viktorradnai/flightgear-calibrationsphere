@@ -1,22 +1,23 @@
+<?xml version="1.0"?>
 <PropertyList>
- <sim>
-
-  <description>Test Sphere</description>
-  <author>Viktor Radnai</author>
-  <status>alpha</status>
-  <rating>
-   <FDM type="int">0</FDM>
-   <systems type="int">0</systems>
-   <cockpit type="int">0</cockpit>
-   <model type="int">1</model>
-  </rating>
-
-  <aero>sphere</aero>
-  <flight-model>yasim</flight-model>
-
-  <model>
-   <path>Aircraft/sphere/Models/sphere.xml</path>
-  </model>
+    <sim>
+        <description>Test Sphere</description>
+        <author>Viktor Radnai</author>
+        <status>alpha</status>
+        <rating>
+            <FDM type="int">0</FDM>
+            <systems type="int">0</systems>
+            <cockpit type="int">0</cockpit>
+            <model type="int">1</model>
+        </rating>
+        <aero>sphere</aero>
+        <flight-model>yasim</flight-model>
+        <startup>
+            <splash-texture>Aircraft/sphere/Splash/splash1.png</splash-texture>
+        </startup>
+        <model>
+            <path>Aircraft/sphere/Models/sphere.xml</path>
+        </model>
         <view n="0">
             <name>Pilot View</name>
             <type>lookfrom</type>
@@ -42,6 +43,5 @@
                 </limits>
             </config>
         </view>
-
- </sim>
+    </sim>
 </PropertyList>
